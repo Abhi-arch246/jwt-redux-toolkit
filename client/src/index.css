@@ -1,13 +1,133 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --primary: #590696;
+  --bar: #4B5D67;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container-nav {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.img-class {
+  width: 750px;
+  height: 500px;
+}
+
+nav {
+  z-index: 100;
+  text-decoration: none;
+  background-color: var(--bar);
+  padding: 18px 32px;
+  border-bottom: 10px solid #F24C4C;
+}
+
+
+.brand {
+  text-decoration: none !important;
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.brand:hover {
+  color: white;
+}
+
+.hamburger {
+  display: block;
+  position: relative;
+  z-index: 1;
+  user-select: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: none;
+  width: 30px;
+  height: 5px;
+  position: relative;
+  margin-bottom: 3px;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 1;
+  transform-origin: 0 0;
+  transition: 0.5s;
+
+
+}
+
+.hamburger:hover span:nth-child(2) {
+  transform: translateX(10px);
+  background-color: #F24C4C;
+}
+
+.menu {
+  margin-left: 700px;
+}
+
+.menu li {
+  display: inline-block;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.submit-btn {
+  background-color: var(--bar);
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 55px;
+}
+
+.submit-btn:hover {
+  background-color: #F24C4C;
+}
+
+.link {
+  color: white;
+  text-decoration: none !important;
+  padding: 10px 20px;
+
+}
+
+.link:hover {
+  color: white;
+}
+
+.active {
+  background-color: #F24C4C;
+  border-radius: 5px;
+}
+
+
+
+
+@media screen and (max-width: 760px) {
+  .hamburger span {
+    display: block;
+
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .img-class {
+    width: 600px;
+    height: 500px;
+  }
 }
