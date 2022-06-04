@@ -25,6 +25,7 @@
 
 nav {
   z-index: 100;
+  width: 100%;
   text-decoration: none;
   background-color: var(--bar);
   padding: 18px 32px;
@@ -75,9 +76,6 @@ nav {
   background-color: #F24C4C;
 }
 
-.menu {
-  margin-left: 700px;
-}
 
 .menu li {
   display: inline-block;
