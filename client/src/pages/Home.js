@@ -2,9 +2,9 @@ import React from 'react'
 import auth from '../auth.png'
 function Home() {
     return (
-        <div className="container">
+        <div className="container mt-5">
 
-            <div className='row mt-5'>
+            <div className='row mx-2'>
                 <div className="col-md-6">
                     <img src={auth} className="img-class" alt="" />
                 </div>

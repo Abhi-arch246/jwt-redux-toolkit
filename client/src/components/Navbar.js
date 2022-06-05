@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink, Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
 
 function Navbar() {
+    const [showlinks, setshowlinks] = useState(false)
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const { user } = useSelector((state) => state.auth)
@@ -14,48 +15,49 @@ function Navbar() {
         navigate('/')
     }
     return (
-        <>
-            <nav>
-                <div className="container-nav">
+        <div className="navbar-style">
+
+            <div className="leftside">
+
+                {user ? (
+                    <Link className='brand' to="/dashboard">Epic Auth</Link>
+
+                ) : (
+                    <Link className='brand' to="/">Epic Auth</Link>
+
+                )}
+            </div>
+
+            <div className="rightside">
+                <ul>
                     {user ? (
-                        <Link className='brand' to="/dashboard">Epic Auth</Link>
-
+                        <li>
+                            <button className='btn btn-danger' onClick={submitLogout}>Logout</button>
+                        </li>
                     ) : (
-                        <Link className='brand' to="/">Epic Auth</Link>
-
+                        <>
+                            <li id={showlinks ? 'hidden' : ''}>
+                                <NavLink className="link" to="/login">Login</NavLink>
+                            </li>
+                            <li>
+                                <NavLink className="link" to="/register">Register</NavLink>
+                            </li>
+                        </>
                     )}
 
-                    <div className="menu">
-                        <ul>
-                            {user ? (
-                                <li>
-                                    <button className='btn btn-danger' onClick={submitLogout}>Logout</button>
-                                </li>
-                            ) : (
-                                <>
-                                    <li>
-                                        <NavLink className="link" to="/login">Login</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink className="link" to="/register">Register</NavLink>
-                                    </li>
-                                </>
-                            )}
+                </ul>
 
-                        </ul>
+            </div>
 
-                    </div>
+            <button onClick={() => setshowlinks(!showlinks)} className='hamburger'>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-                    <button className='hamburger'>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
 
-                </div>
+        </div>
 
-            </nav>
-        </>
     )
 }
 

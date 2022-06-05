@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.css'
+import './App.css'
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './pages/Login'
@@ -9,6 +9,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Dashboard from './pages/Dashboard';
+
 function App() {
   return (
     <div className="App">
