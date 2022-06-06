@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getAllUsers, reset } from '../features/auth/authSlice'
@@ -12,11 +12,16 @@ function Dashboard() {
         if (!user) {
             navigate('/')
         }
-        // dispatch(getAllUsers())
+        dispatch(getAllUsers())
         console.log(users);
 
+        return () => {
+            dispatch(reset())
+        }
 
-    }, [user, users, navigate, dispatch])
+    }, [user, navigate, dispatch])
+
+
 
 
     return (
@@ -63,7 +68,7 @@ function Dashboard() {
                                             </tr>
                                         })
                                     ) : (
-                                        <p>No Users yet</p>
+                                        <h1 className='text-center'>No Users yet</h1>
                                     )
                                     /* {users && (
                                     users.map(user => {

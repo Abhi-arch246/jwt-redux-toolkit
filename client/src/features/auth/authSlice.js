@@ -2,10 +2,10 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import authService from './authService'
 
 const user = JSON.parse(localStorage.getItem('user'))
-const users = JSON.parse(localStorage.getItem('users'))
+// const users = JSON.parse(localStorage.getItem('users'))
 
 const initialState = {
-    users: users ? users : null,
+    users: [],
     user: user ? user : null,
     isError: false,
     isSuccess: false,
@@ -37,8 +37,8 @@ export const logout = createAsyncThunk('auth/logout', async () => {
     await authService.logout()
 })
 
-export const getAllUsers = createAsyncThunk('auth/allusers', async (users, thunkAPI) => {
-    await await authService.getAllUsers()
+export const getAllUsers = createAsyncThunk('auth/allusers', async (_, thunkAPI) => {
+    return await authService.getAllUsers()
 })
 
 export const authSlice = createSlice({
@@ -50,7 +50,6 @@ export const authSlice = createSlice({
             state.isSuccess = false
             state.isError = false
             state.message = ''
-            state.users = []
         }
     },
     extraReducers: (builder) => {

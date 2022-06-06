@@ -28,11 +28,13 @@ const logout = async () => {
 
 const getAllUsers = async () => {
     const res = await axios.get(API_URL + 'allusers')
-    if (res.data) {
-        localStorage.setItem('users', JSON.stringify(res.data))
-        console.log(res.data);
+    console.log(res.data);
+    return res.data
+    // if (res.data) {
+    //     localStorage.setItem('users', JSON.stringify(res.data))
+    //     console.log(res.data);
 
-    }
+    // }
 
 }
 

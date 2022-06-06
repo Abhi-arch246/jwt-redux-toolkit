@@ -60,7 +60,7 @@ const loginUser = async (req, res) => {
     }
 }
 
-const getAllUsers = async (req, res) => {
+const getAllUsers = (req, res) => {
     User.find({}, (err, docs) => {
         if (!err)
             return res.send(docs)
