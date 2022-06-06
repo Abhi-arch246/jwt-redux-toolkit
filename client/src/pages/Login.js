@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { login, reset } from '../features/auth/authSlice'
 function Login() {
     const [email, setemail] = useState('')
-    const [pass, setpass] = useState('')
+    const [password, setpassword] = useState('')
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const { user, isError, isLoading, isSuccess, message } = useSelector((state) => state.auth)
@@ -15,9 +15,10 @@ function Login() {
         if (isError) {
             toast.error("Your credentials doesn't match")
         }
-        if (isSuccess || user) {
-            navigate('/dashboard')
+        if (isSuccess) {
             toast.success("Login successful")
+
+            navigate('/dashboard')
         }
 
         dispatch(reset())
@@ -28,8 +29,8 @@ function Login() {
     const loginsubmit = (e) => {
         e.preventDefault()
         const userData = {
-            email: email,
-            password: pass
+            email,
+            password
         }
         dispatch(login(userData))
     }
@@ -60,7 +61,7 @@ function Login() {
                         </div>
                         <div className="form-group mt-4">
                             <h5>Password</h5>
-                            <input type="password" value={pass} onChange={(e) => setpass(e.target.value)} className="form-control" required placeholder="Password" />
+                            <input type="password" value={password} onChange={(e) => setpassword(e.target.value)} className="form-control" required placeholder="Password" />
                         </div>
                         <div className="text-center">
 

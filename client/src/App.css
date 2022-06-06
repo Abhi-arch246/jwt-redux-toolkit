@@ -138,8 +138,8 @@ body {
         position: absolute;
         top: 80px;
         left: 0;
-        height: 230px;
-        max-height: 230px;
+        height: 120px;
+        max-height: 120px;
         width: 100%;
         background-color: var(--bar);
         display: flex;

@@ -21,7 +21,16 @@ const registerUser = async (req, res) => {
                 password: hashedPassword
             })
 
-            res.status(201).json(user)
+            if (user) {
+                res.status(201).json({
+                    _id: user.id,
+                    name: user.name,
+                    email: user.email,
+                    token: generateToken(user._id),
+                })
+            } else {
+                res.status(400).json({ msg: 'Something went wrong' })
+            }
 
         }
         catch (error) {
@@ -38,7 +47,7 @@ const loginUser = async (req, res) => {
     const user = await User.findOne({ email })
 
     if (user && (await bcrypt.compare(password, user.password))) {
-        res.json({
+        res.status(200).json({
             _id: user.id,
             name: user.name,
             email: user.email,
@@ -46,7 +55,7 @@ const loginUser = async (req, res) => {
 
         })
     } else {
-        res.json({ message: "User not logged in" })
+        res.status(400).json({ message: "User not logged in" })
 
     }
 }

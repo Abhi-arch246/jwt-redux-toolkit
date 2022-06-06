@@ -7,8 +7,8 @@ import { register, reset } from '../features/auth/authSlice'
 function Register() {
     const [name, setname] = useState('')
     const [email, setemail] = useState('')
-    const [pass, setpass] = useState('')
-    const [cpass, setcpass] = useState('')
+    const [password, setpassword] = useState('')
+    const [cpassword, setcpassword] = useState('')
 
     const { user, isError, isLoading, isSuccess, message } = useSelector((state) => state.auth)
 
@@ -30,13 +30,13 @@ function Register() {
 
     const registersubmit = (e) => {
         e.preventDefault()
-        if (pass !== cpass) {
+        if (password !== cpassword) {
             toast.error('Passwords do not match')
         } else {
             const userData = {
-                name: name,
-                email: email,
-                password: pass
+                name,
+                email,
+                password
             }
 
             dispatch(register(userData))
@@ -73,11 +73,11 @@ function Register() {
                         </div>
                         <div className="form-group mt-4">
                             <h5>Password</h5>
-                            <input type="password" value={pass} onChange={(e) => setpass(e.target.value)} className="form-control" required placeholder="Password" />
+                            <input type="password" value={password} onChange={(e) => setpassword(e.target.value)} className="form-control" required placeholder="Password" />
                         </div>
                         <div className="form-group mt-4">
                             <h5>Confirm Password</h5>
-                            <input type="password" value={cpass} onChange={(e) => setcpass(e.target.value)} className="form-control" required placeholder="Confirm Password" />
+                            <input type="password" value={cpassword} onChange={(e) => setcpassword(e.target.value)} className="form-control" required placeholder="Confirm Password" />
                         </div>
                         <div className="text-center">
 
