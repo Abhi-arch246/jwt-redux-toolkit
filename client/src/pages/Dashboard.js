@@ -16,7 +16,7 @@ function Dashboard() {
         <div className='container'>
             <div className="justify-content-center">
                 <div className="row mt-4">
-                    <div className="col-md-6 mx-auto shadow-lg">
+                    <div className="col-md-6 mt-5 mx-auto shadow-lg">
                         <div className='p-5 rounded'>
                             <h1 className='py-4'>Dashboard</h1>
                             <h2>Welcome {user.name}</h2>
