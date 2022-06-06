@@ -8,7 +8,7 @@ function Home() {
                 <div className="col-md-6">
                     <img src={auth} className="img-class" alt="" />
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 py-2">
                     <h1>Test Website for JWT Auth</h1>
                     <br />
 

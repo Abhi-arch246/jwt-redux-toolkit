@@ -13,10 +13,11 @@ function Login() {
 
     useEffect(() => {
         if (isError) {
-            toast.error(message)
+            toast.error("Your credentials doesn't match")
         }
         if (isSuccess || user) {
             navigate('/dashboard')
+            toast.success("Login successful")
         }
 
         dispatch(reset())
@@ -55,11 +56,11 @@ function Login() {
                     <form onSubmit={loginsubmit} className=' mt-5 mx-4' style={{ textAlign: "left" }}>
                         <div className="form-group">
                             <h5>Email address</h5>
-                            <input type="email" value={email} onChange={(e) => setemail(e.target.value)} className="form-control" placeholder="Enter email" autoFocus />
+                            <input type="email" value={email} onChange={(e) => setemail(e.target.value)} className="form-control" required placeholder="Enter email" autoFocus />
                         </div>
                         <div className="form-group mt-4">
                             <h5>Password</h5>
-                            <input type="password" value={pass} onChange={(e) => setpass(e.target.value)} className="form-control" placeholder="Password" />
+                            <input type="password" value={pass} onChange={(e) => setpass(e.target.value)} className="form-control" required placeholder="Password" />
                         </div>
                         <div className="text-center">
 

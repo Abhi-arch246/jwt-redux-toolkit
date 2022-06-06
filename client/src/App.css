@@ -143,14 +143,15 @@ body {
         width: 100%;
         background-color: var(--bar);
         display: flex;
+        z-index: 1;
+        transition-timing-function: linear;
+        transition-delay: 1s;
         flex-direction: column;
         align-items: center;
     }
 
-
-
     .img-class {
-        width: 460px;
+        width: 400px;
         height: 380px;
     }
 }

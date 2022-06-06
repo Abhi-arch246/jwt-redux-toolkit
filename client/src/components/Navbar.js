@@ -31,7 +31,7 @@ function Navbar() {
             <div className="rightside">
                 <ul>
                     {user ? (
-                        <li>
+                        <li id={showlinks ? '' : 'hidden'}>
                             <button className='btn btn-danger' onClick={submitLogout}>Logout</button>
                         </li>
                     ) : (
@@ -39,7 +39,7 @@ function Navbar() {
                             <li id={showlinks ? 'hidden' : ''}>
                                 <NavLink className="link" to="/login">Login</NavLink>
                             </li>
-                            <li>
+                            <li >
                                 <NavLink className="link" to="/register">Register</NavLink>
                             </li>
                         </>

@@ -65,19 +65,19 @@ function Register() {
                     <form onSubmit={registersubmit} className=' mt-5 mx-4' style={{ textAlign: "left" }}>
                         <div className="form-group">
                             <h5>Name</h5>
-                            <input type="text" value={name} onChange={(e) => setname(e.target.value)} className="form-control" placeholder="Enter name" autoFocus />
+                            <input type="text" value={name} onChange={(e) => setname(e.target.value)} className="form-control" placeholder="Enter name" required autoFocus />
                         </div>
                         <div className="form-group mt-4">
                             <h5>Email address</h5>
-                            <input type="email" value={email} onChange={(e) => setemail(e.target.value)} className="form-control" placeholder="Enter email" />
+                            <input type="email" value={email} onChange={(e) => setemail(e.target.value)} className="form-control" required placeholder="Enter email" />
                         </div>
                         <div className="form-group mt-4">
                             <h5>Password</h5>
-                            <input type="password" value={pass} onChange={(e) => setpass(e.target.value)} className="form-control" placeholder="Password" />
+                            <input type="password" value={pass} onChange={(e) => setpass(e.target.value)} className="form-control" required placeholder="Password" />
                         </div>
                         <div className="form-group mt-4">
                             <h5>Confirm Password</h5>
-                            <input type="password" value={cpass} onChange={(e) => setcpass(e.target.value)} className="form-control" placeholder="Confirm Password" />
+                            <input type="password" value={cpass} onChange={(e) => setcpass(e.target.value)} className="form-control" required placeholder="Confirm Password" />
                         </div>
                         <div className="text-center">
 
