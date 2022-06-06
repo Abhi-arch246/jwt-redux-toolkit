@@ -2,9 +2,10 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import authService from './authService'
 
 const user = JSON.parse(localStorage.getItem('user'))
-
+const users = JSON.parse(localStorage.getItem('users'))
 
 const initialState = {
+    users: users ? users : null,
     user: user ? user : null,
     isError: false,
     isSuccess: false,
@@ -36,6 +37,10 @@ export const logout = createAsyncThunk('auth/logout', async () => {
     await authService.logout()
 })
 
+export const getAllUsers = createAsyncThunk('auth/allusers', async (users, thunkAPI) => {
+    await await authService.getAllUsers()
+})
+
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
@@ -45,6 +50,7 @@ export const authSlice = createSlice({
             state.isSuccess = false
             state.isError = false
             state.message = ''
+            state.users = []
         }
     },
     extraReducers: (builder) => {
@@ -79,6 +85,19 @@ export const authSlice = createSlice({
             })
             .addCase(logout.fulfilled, (state) => {
                 state.user = null
+            })
+            .addCase(getAllUsers.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(getAllUsers.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                state.users = action.payload
+            })
+            .addCase(getAllUsers.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
             })
     },
 })

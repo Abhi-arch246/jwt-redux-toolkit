@@ -60,6 +60,15 @@ const loginUser = async (req, res) => {
     }
 }
 
+const getAllUsers = async (req, res) => {
+    User.find({}, (err, docs) => {
+        if (!err)
+            return res.send(docs)
+        else
+            return res.status(400).json({ msg: 'Error' })
+    })
+}
+
 // User data - /api/users/me
 const dataUser = async (req, res) => {
 
@@ -73,5 +82,6 @@ const generateToken = (id) => {
 module.exports = {
     registerUser,
     loginUser,
+    getAllUsers,
     dataUser
 }
