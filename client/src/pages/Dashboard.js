@@ -53,7 +53,7 @@ function Dashboard() {
                             <thead className='thead-dark'>
                                 <tr>
                                     <th scope='col'>User ID</th>
-                                    <th scope='col'>User Name</th>
+                                    <th scope='col'>Name</th>
                                     <th scope='col'>User Email</th>
                                 </tr>
                             </thead>
