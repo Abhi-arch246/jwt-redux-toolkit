@@ -2,7 +2,7 @@ import React from 'react'
 import auth from '../auth.png'
 function Home() {
     return (
-        <div className="container mt-5">
+        <div className="container my-5">
 
             <div className='row mx-2'>
                 <div className="col-md-6">
